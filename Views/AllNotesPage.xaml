@@ -5,24 +5,24 @@
              x:Class="Notes.Views.AllNotesPage"
              Title="Your Notes"
              x:DataType="models:AllNotes">
-    <!-- Add an item to the toolbar -->
+    <!-- toolbar med add / tilføj knap -->
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="Add_Clicked" IconImageSource="{FontImage Glyph='+', Color=Black, Size=22}" />
     </ContentPage.ToolbarItems>
 
-    <!-- Display notes in a list -->
+    <!-- visr liste af gemte noter -->
     <CollectionView x:Name="notesCollection"
                         ItemsSource="{Binding Notes}"
                         Margin="20"
                         SelectionMode="Single"
                         SelectionChanged="notesCollection_SelectionChanged">
 
-        <!-- Designate how the collection of items are laid out -->
+        <!-- sætter layoutet vertikalt med spacing -->
         <CollectionView.ItemsLayout>
             <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
         </CollectionView.ItemsLayout>
 
-        <!-- Define the appearance of each item in the list -->
+        <!-- deffinere hvordan hver note skal vises -->
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="models:Note">
                 <StackLayout>

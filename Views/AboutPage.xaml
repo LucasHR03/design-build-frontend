@@ -3,21 +3,37 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:Notes.Models"
              x:Class="Notes.Views.AboutPage"
-             x:DataType="models:About">
-    <ContentPage.BindingContext>
-        <models:About />
-    </ContentPage.BindingContext>
-    <VerticalStackLayout Spacing="10" Margin="10">
-        <HorizontalStackLayout Spacing="10">
-            <Image Source="dotnet_bot.png"
-                   SemanticProperties.Description="The dot net bot waving hello!"
-                   HeightRequest="64" />
-            <Label FontSize="22" FontAttributes="Bold" Text="{Binding Title}" VerticalOptions="End" />
-            <Label FontSize="22" Text="{Binding Version}" VerticalOptions="End" />
-        </HorizontalStackLayout>
+             Title="Timer">
 
-        <Label Text="{Binding Message}" />
-        <Button Text="Learn more..." Clicked="LearnMore_Clicked" />
-    </VerticalStackLayout>
+    <ScrollView>        <!-- hvis siden bliver fyldt kan der scorles -->
+        <VerticalStackLayout Spacing="20" Padding="20">
+            <Label x:Name="TimerLabel"
+               Text="0.00"
+               FontSize="48"
+               HorizontalOptions="Center" />    <!-- viser timer værdie -->
 
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Button Text="Start" Clicked="StartButton_Clicked" />
+                <Button Text="Stop" Clicked="StopButton_Clicked" />
+            </HorizontalStackLayout>    <!-- timer start og stop knaper -->
+
+            <CollectionView ItemsSource="{Binding Entries}" SelectionMode="None" Margin="10">   <!-- viser liste af gemte timers -->
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:TimerEntry">
+                        <!-- layout for hver gemt timer -->
+                        <StackLayout Padding="10">
+                            <!-- gør det muligt at klike på de gemte timere-->
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTimerTapped" />
+                            </StackLayout.GestureRecognizers>
+
+                            <Label Text="{Binding Duration}" FontSize="20"/>    <!-- viser tid på gemt timer -->
+                            <Label Text="{Binding Timestamp}" FontSize="14" TextColor="Gray"/>  <!-- viser tidspunktet timeren blev stoppet -->
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

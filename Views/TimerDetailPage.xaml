@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Notes.Models"
+             x:Class="Notes.Views.TimerDetailPage"
+             x:DataType="models:TimerEntry">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <!-- viser duration label og den tiden -->
+        <Label Text="Duration:" FontSize="18" />
+        <Label Text="{Binding Duration}" FontSize="24" FontAttributes="Bold"/>
+
+        <!-- viser timestamp label og selve tidspunktet -->
+        <Label Text="Stopped at:" FontSize="18" />
+        <Label Text="{Binding Timestamp}" FontSize="20" TextColor="Gray"/>
+        
+        <!-- slet knap -->
+        <Button Text="Delete Timer" BackgroundColor="Red" TextColor="White" Clicked="DeleteButton_Clicked"/>
+        <!-- tilbage knap -->
+        <Button Text="Go to Timer Page" Clicked="OnNavigateToAboutPageClicked" />
+    </VerticalStackLayout>
+</ContentPage>

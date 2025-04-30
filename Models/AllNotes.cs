@@ -2,38 +2,36 @@
 
 namespace Notes.Models;
 
+// håndterer alle note filler
 internal class AllNotes
 {
+    // ObservableCollection er en liste indeholdende de noter der kan observeres
     public ObservableCollection<Note> Notes { get; set; } = new ObservableCollection<Note>();
 
+    // initialiserer klassen og kalder LoadNotes metoden
     public AllNotes() =>
         LoadNotes();
 
+    // loader alle noter fra appDataDirectory
     public void LoadNotes()
     {
         Notes.Clear();
 
-        // Get the folder where the notes are stored.
+        // henter appDataDirectory
         string appDataPath = FileSystem.AppDataDirectory;
 
-        // Use Linq extensions to load the *.notes.txt files.
+        // henter alle filer der ender på .notes.txt
         IEnumerable<Note> notes = Directory
-
-                                    // Select the file names from the directory
                                     .EnumerateFiles(appDataPath, "*.notes.txt")
-
-                                    // Each file name is used to create a new Note
                                     .Select(filename => new Note()
                                     {
                                         Filename = filename,
                                         Text = File.ReadAllText(filename),
                                         Date = File.GetLastWriteTime(filename)
                                     })
+                                    .OrderBy(note => note.Date); // gemmer noter i rækkefølge efter dato
 
-                                    // With the final collection of notes, order them by date
-                                    .OrderBy(note => note.Date);
-
-        // Add each note into the ObservableCollection
+        // tilføjer noterne til ObservableCollection
         foreach (Note note in notes)
             Notes.Add(note);
     }

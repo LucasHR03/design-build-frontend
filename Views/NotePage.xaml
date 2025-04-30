@@ -5,19 +5,20 @@
              x:Class="Notes.Views.NotePage"
              Title="Note"
              x:DataType="models:Note">
-    <VerticalStackLayout Spacing="10" Margin="5">
+    <VerticalStackLayout Spacing="10" Margin="5">   <!-- laver layourtet vertikalt med spacing -->
+            <!-- Editor så der kan ændres i noter -->
         <Editor x:Name="TextEditor"
                 Placeholder="Enter your note"
                 Text="{Binding Text}"
                 HeightRequest="100" />
-
+            <!-- grid af 2, til save og delete knaper -->
         <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
             <Button Text="Save"
-                    Clicked="SaveButton_Clicked" />
+                    Clicked="SaveButton_Clicked" /> <!-- gem knap -->
 
             <Button Grid.Column="1"
                     Text="Delete"
-                    Clicked="DeleteButton_Clicked" />
+                    Clicked="DeleteButton_Clicked" />   <!-- slet knap -->
         </Grid>
     </VerticalStackLayout>
 </ContentPage>
