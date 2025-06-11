@@ -5,9 +5,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:Notes.Views"
     Shell.FlyoutBehavior="Disabled">
-    
-    <TabBar>    <!-- laver TabBar / navigationsbar  -->
-            <!-- første tab når man åbner appen, Timer-side  -->
+
+    <TabBar> 
+        <!-- laver TabBar / navigationsbar  -->
+
+        <!-- første tab når man åbner appen, Timer-side  -->
         <ShellContent   
             Title="Timer"
             ContentTemplate="{DataTemplate views:AboutPage}"
