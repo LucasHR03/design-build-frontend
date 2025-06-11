@@ -4,12 +4,12 @@
             x:Class="Notes.Views.LoginPage"  
             Title="Login">  
 
-   <ScrollView>  
-       <VerticalStackLayout Padding="30"  
-                            Spacing="20"  
-                            VerticalOptions="CenterAndExpand"  
-                            HorizontalOptions="Center">  
-           <!-- Titel -->  
+   <ScrollView>
+        <Grid HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+            <VerticalStackLayout WidthRequest="300" Spacing="20"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                <!-- Titel -->  
            <Label Text="MinGraviditet"  
                   FontSize="28"  
                   FontAttributes="Bold"  
@@ -45,6 +45,7 @@
                    CornerRadius="8"  
                    Clicked="OnLoginClicked" />  
 
-       </VerticalStackLayout>  
-   </ScrollView>  
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>  
 </ContentPage>              
