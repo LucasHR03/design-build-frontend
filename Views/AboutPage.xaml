@@ -13,8 +13,8 @@
                HorizontalOptions="Center" />    <!-- viser timer værdie -->
 
             <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
-                <Button Text="Start" Clicked="StartButton_Clicked" />
-                <Button Text="Stop" Clicked="StopButton_Clicked" />
+                <Button Text="Ve startet" Clicked="StartButton_Clicked" />
+                <Button Text="Ve Stoppet" Clicked="StopButton_Clicked" />
             </HorizontalStackLayout>    <!-- timer start og stop knaper -->
 
             <CollectionView ItemsSource="{Binding Entries}" SelectionMode="None" Margin="10">   <!-- viser liste af gemte timers -->

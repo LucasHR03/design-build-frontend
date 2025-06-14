@@ -13,11 +13,11 @@
                 HeightRequest="100" />
             <!-- grid af 2, til save og delete knaper -->
         <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
-            <Button Text="Save"
+            <Button Text="Gem note"
                     Clicked="SaveButton_Clicked" /> <!-- gem knap -->
 
             <Button Grid.Column="1"
-                    Text="Delete"
+                    Text="Slet note"
                     Clicked="DeleteButton_Clicked" />   <!-- slet knap -->
         </Grid>
     </VerticalStackLayout>

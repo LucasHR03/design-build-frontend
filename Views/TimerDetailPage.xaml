@@ -15,8 +15,8 @@
         <Label Text="{Binding Timestamp}" FontSize="20" TextColor="Gray"/>
         
         <!-- slet knap -->
-        <Button Text="Delete Timer" BackgroundColor="Red" TextColor="White" Clicked="DeleteButton_Clicked"/>
+        <Button Text="Slet ve" BackgroundColor="Red" TextColor="White" Clicked="DeleteButton_Clicked"/>
         <!-- tilbage knap -->
-        <Button Text="Go to Timer Page" Clicked="OnNavigateToAboutPageClicked" />
+        <Button Text="Tilbage" Clicked="OnNavigateToAboutPageClicked" />
     </VerticalStackLayout>
 </ContentPage>
