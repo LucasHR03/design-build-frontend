@@ -1,51 +1,58 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
-            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
-            x:Class="Notes.Views.LoginPage"  
-            Title="Login">  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             x:Class="Notes.Views.LoginPage"  
+             Title="Login">
 
-   <ScrollView>
-        <Grid HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
-            <VerticalStackLayout WidthRequest="300" Spacing="20"
+    <ScrollView>
+        <Grid RowDefinitions="1*, Auto, 1*"
+              ColumnDefinitions="1*, Auto, 1*"
+              Padding="30">
+
+            
+            <VerticalStackLayout Grid.Row="1" Grid.Column="1"
+                                 Spacing="20"
                                  HorizontalOptions="Center"
-                                 VerticalOptions="Center">
-                <!-- Titel -->  
-           <Label Text="MinGraviditet"  
-                  FontSize="28"  
-                  FontAttributes="Bold"  
-                  HorizontalOptions="Center"  
-                  TextColor="DarkViolet" />  
+                                 VerticalOptions="Center"
+                                 WidthRequest="300">
+                <!-- Titel -->
+                <Label Text="MinGraviditet"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="DarkViolet" />
+                
+                <!-- App ikon -->
+                <Image Source="icon.png"
+                       WidthRequest="120"
+                       HeightRequest="120"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center" />
+                
+                <!-- CPR input -->
+                <Entry x:Name="CprEntry"
+                       Placeholder="CPR-nummer"
+                       Keyboard="Numeric"
+                       BackgroundColor="#F5F0FF"
+                       HorizontalOptions="FillAndExpand" />
+                
+                <!-- Password input -->
+                <Entry x:Name="PasswordEntry"
+                       Placeholder="Adgangskode"
+                       IsPassword="True"
+                       BackgroundColor="#F5F0FF"
+                       HorizontalOptions="FillAndExpand" />
 
-           <!-- App ikon -->  
-           <Image Source="icon.png"  
-                  WidthRequest="120"  
-                  HeightRequest="120"  
-                  HorizontalOptions="Center"  
-                  Aspect="AspectFit"/>  
-
-           <!-- CPR input -->  
-           <Entry x:Name="CprEntry"  
-                  Placeholder="CPR-nummer"  
-                  Keyboard="Numeric"  
-                  WidthRequest="250"  
-                  BackgroundColor="#F5F0FF" />  
-
-           <!-- Password input -->  
-           <Entry x:Name="PasswordEntry"  
-                  Placeholder="Adgangskode"  
-                  IsPassword="True"  
-                  WidthRequest="250"  
-                  BackgroundColor="#F5F0FF"/>  
-
-           <!-- Login knap -->  
-           <Button Text="Log ind"  
-                   WidthRequest="250"  
-                   BackgroundColor="#673AB7"  
-                   TextColor="White"  
-                   CornerRadius="8"  
-                   Clicked="OnLoginClicked" />  
+                <!-- Login knap -->
+                <Button Text="Log ind"
+                        BackgroundColor="#673AB7"
+                        TextColor="White"
+                        CornerRadius="8"
+                        Clicked="OnLoginClicked"
+                        HorizontalOptions="FillAndExpand" />
 
             </VerticalStackLayout>
         </Grid>
-    </ScrollView>  
-</ContentPage>              
+    </ScrollView>
+</ContentPage>
+
