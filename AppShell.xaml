@@ -1,25 +1,26 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <Shell
     x:Class="Notes.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:Notes.Views"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Disabled"
+    Shell.BackgroundColor="#FFFFFF"
+    Shell.TitleColor="#ACACAC"
+    Shell.NavBarHasShadow="True">
 
-    <TabBar> 
-        <!-- laver TabBar / navigationsbar  -->
+    <TabBar
+        Shell.TabBarBackgroundColor="#FFFFFF"
+        Shell.TabBarTitleColor="#ACACAC"
+        Shell.TabBarUnselectedColor="#D1C4E9">
 
-        <!-- første tab når man åbner appen, Timer-side  -->
-        <ShellContent   
+        <ShellContent 
             Title="Ve timer"
             ContentTemplate="{DataTemplate views:AboutPage}"
-            Icon="{OnPlatform 'icon_about.png', iOS='icon_about_ios.png', MacCatalyst='icon_about_ios.png'}" />
+            Icon="Timer_icon.png" />
 
-            <!-- anden tab, notat-side  -->
-        <ShellContent
-            Title="Noter"
+        <ShellContent 
+            Title="Skriv til jordmoderen"
             ContentTemplate="{DataTemplate views:AllNotesPage}"
-            Icon="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png', MacCatalyst='icon_notes_ios.png'}" />
+            Icon="Notes_icon.png" />
     </TabBar>
-
 </Shell>

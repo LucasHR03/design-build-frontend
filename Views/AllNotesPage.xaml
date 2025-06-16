@@ -1,36 +1,40 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:Notes.Models"
              x:Class="Notes.Views.AllNotesPage"
-             Title="Dine noter"
+             Title="Dine beskeder"
              x:DataType="models:AllNotes">
-    
-    <!-- toolbar med add / tilføj knap -->
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Ny note" Clicked="Add_Clicked" IconImageSource="{FontImage Glyph='+', Color=Black, Size=22}" />
-    </ContentPage.ToolbarItems>
 
-    <!-- visr liste af gemte noter -->
-    <CollectionView x:Name="notesCollection"
-                        ItemsSource="{Binding Notes}"
-                        Margin="20"
-                        SelectionMode="Single"
-                        SelectionChanged="notesCollection_SelectionChanged">
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20">
 
-        <!-- sætter layoutet vertikalt med spacing -->
-        <CollectionView.ItemsLayout>
-            <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
-        </CollectionView.ItemsLayout>
+            <Button Text="Ny note"
+                    WidthRequest="250"
+                    BackgroundColor="#673AB7"
+                    TextColor="White"
+                    CornerRadius="8"
+                    HorizontalOptions="Center"
+                    Clicked="Add_Clicked" />
 
-        <!-- deffinere hvordan hver note skal vises -->
-        <CollectionView.ItemTemplate>
-            <DataTemplate x:DataType="models:Note">
-                <StackLayout>
-                    <Label Text="{Binding Text}" FontSize="22"/>
-                    <Label Text="{Binding Date}" FontSize="14" TextColor="Silver"/>
-                </StackLayout>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+            <CollectionView x:Name="notesCollection"
+                            ItemsSource="{Binding Notes}"
+                            SelectionMode="Single"
+                            SelectionChanged="notesCollection_SelectionChanged">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Note">
+                        <StackLayout>
+                            <Label Text="{Binding Text}" FontSize="22"/>
+                            <Label Text="{Binding Date}" FontSize="14" TextColor="Silver"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
