@@ -8,16 +8,26 @@
 
     <VerticalStackLayout Padding="20" Spacing="20">
         <!-- viser duration label og den tiden -->
-        <Label Text="Duration:" FontSize="18" />
+        <Label Text="Varighed:" FontSize="18" />
         <Label Text="{Binding Duration}" FontSize="24" FontAttributes="Bold"/>
 
         <!-- viser timestamp label og selve tidspunktet -->
-        <Label Text="Stopped at:" FontSize="18" />
+        <Label Text="Stoppet:" FontSize="18" />
         <Label Text="{Binding Timestamp}" FontSize="20" TextColor="Gray"/>
         
         <!-- slet knap -->
-        <Button Text="Slet ve" BackgroundColor="Red" TextColor="White" Clicked="DeleteButton_Clicked"/>
+        <Button Text="Slet ve" 
+                 WidthRequest="250"  
+                 BackgroundColor="Red" 
+                 TextColor="White"  
+                 CornerRadius="8"  
+                Clicked="DeleteButton_Clicked"/>
         <!-- tilbage knap -->
-        <Button Text="Tilbage" Clicked="OnNavigateToAboutPageClicked" />
+        <Button Text="Tilbage" 
+                WidthRequest="250"  
+                BackgroundColor="#673AB7"  
+                TextColor="White"  
+                CornerRadius="8"  
+                Clicked="OnNavigateToAboutPageClicked" />
     </VerticalStackLayout>
 </ContentPage>
